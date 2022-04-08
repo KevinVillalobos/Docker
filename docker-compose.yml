@@ -1,7 +1,7 @@
 version: '3.8'
 services:
     php-apache-environment:
-        container_name: apache_page
+        container_name: apache_page1
         restart: always
         build:
             context: ./pagina
