@@ -1,19 +1,19 @@
 version: '3.8'
 services:
     php-apache-environment:
-        container_name: apache_page1
+        container_name: apache_page
         restart: always
         build:
             context: ./pagina
             dockerfile: Dockerfile
         depends_on:
-            - db1
+            - db
         volumes:
             - ./pagina/php:/var/www/html/
         ports:
             - 8002:80
-    db1:
-        container_name: db1
+    db:
+        container_name: db
         image: mysql
         restart: always
         environment:
@@ -26,10 +26,10 @@ services:
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
         ports:
-            - '8090:80'
+            - '8080:80'
         restart: always
         environment:
-            PMA_HOST: db1
+            PMA_HOST: db
         depends_on:
-            - db1
+            - db
 
